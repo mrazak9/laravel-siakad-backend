@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages/blank-page', ['type_menu' => '']);
+});
+
+Route::get('/auth-login', function () {
+    return view('pages.auth.login', ['type_menu' => 'auth']);
+});
+
+Route::get('/dashboard-general-dashboard', function () {
+    return view('pages.dashboard.general-dashboard', ['type_menu' => 'dashboard']);
 });
