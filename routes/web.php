@@ -14,13 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages/blank-page', ['type_menu' => '']);
+    return view('pages.app.dashboard-siakad', ['type_menu' => '']);
 });
 
-Route::get('/auth-login', function () {
+Route::get('/register', function () {
+    return view('pages.auth.register');
+})->name('register');
+
+Route::get('/login', function () {
     return view('pages.auth.login', ['type_menu' => 'auth']);
-});
+})->name('login');
 
-Route::get('/dashboard-general-dashboard', function () {
-    return view('pages.dashboard.general-dashboard', ['type_menu' => 'dashboard']);
-});
+Route::get('/forgot-password', function () {
+    return view('pages.auth.forgot-password');
+})->name('forgot-password');
+
+Route::get('/reset-password', function () {
+    return view('pages.auth.reset-password');
+})->name('reset-password');
