@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SubjectSeeder::class,
             ScheduleSeeder::class,
+            KhsSeeder::class,
+            AbsensiMatkulSeeder::class,
+            StudentScheduleSeeder::class,
         ]);
     }
 }

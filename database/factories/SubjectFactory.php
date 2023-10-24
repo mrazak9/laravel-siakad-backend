@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,9 +17,15 @@ class SubjectFactory extends Factory
      */
     public function definition(): array
     {
+        $lecturer = User::where('roles', 'dosen')->inRandomOrder()->first();
         return [
-            'title' => fake()->word(),
-            'lecturer_id' => 3,
+            'title' => $this->faker->word,
+            'lecturer_id' => $lecturer->id,
+            'semester' => $this->faker->randomDigit(1),
+            'tahun_akademik' => '2023/2024',
+            'sks' => $this->faker->randomElement([1, 2, 3, 4]),
+            'kode_matakuliah' => $this->faker->word,
+            'deskripsi' => $this->faker->word,
         ];
     }
 }

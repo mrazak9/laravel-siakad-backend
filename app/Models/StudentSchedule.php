@@ -5,21 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class StudentSchedule extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'lecturer_id',
-        'semester',
-        'tahun_akademik',
-        'sks',
-        'kode_matakuliah',
-        'deskripsi',
+        'student_id',
+        'schedule_id',
     ];
 
-    public function lecturer()
+    //belongto
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
+
+    public function student()
     {
         return $this->belongsTo(User::class);
     }
